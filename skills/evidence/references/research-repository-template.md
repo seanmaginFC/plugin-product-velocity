@@ -65,6 +65,11 @@ this run, log that too, with the reason — an evidence base missing four source
 materially thinner than one that reached them, and a later stage can't infer that from
 silence.
 
+**For any Confluence, Jira, Miro or FullStory row, the Notes column must say whether it was
+retrieved via `leisure-research-insights`** ("delegated") **or wasn't** ("not delegated —
+[reason]"). A blank Notes cell on one of these rows reads as compliant whether or not it
+actually was — don't leave that ambiguous.
+
 | Source | Type | Date/Window | Used? | Notes |
 |---|---|---|---|---|
 | [name/link] | Confluence / Jira / Miro / FullStory / Great Question / Qualtrics / Usabilla / PowerBI / Attachment / URL | | Y/N | |

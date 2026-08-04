@@ -78,6 +78,8 @@ Then follow up in plain text for the actual links, files or pasted content for w
 
 ## Step 4 — Gather and read sources
 
+**Invoke `leisure-research-insights` before touching Confluence, Jira, Miro or FullStory with any other tool — don't decide it's probably available and skip straight to reading them directly to save a step.** "It's quicker to just check Confluence myself" is not a valid reason to bypass delegation; it's the exact failure this rule exists to prevent. There are only two legitimate paths through this step: invoke the skill and use what it returns, or establish that it's genuinely unavailable (not listed this session, or invocation fails) and follow the degraded branch below. Reading these four source types with generic tools while never actually attempting either path is not a third option.
+
 **Confluence, Jira, Miro and FullStory → delegate to `leisure-research-insights`.** It carries the anti-fabrication discipline, triangulation logic and citation conventions for those four systems.
 
 Apply this stage's flex-down rigour on top: don't inherit its hard escalation and source-count gates verbatim (it expects five-plus sources per major claim and escalation to a named research team). Label confidence instead of blocking. Early evidence is thin by nature.
@@ -89,6 +91,8 @@ Apply this stage's flex-down rigour on top: don't inherit its hard escalation an
 - Log the unavailable categories in the Source Log, and expect a lower confidence ceiling: High requires triangulation across independent sources, and losing whole categories makes that harder to reach honestly. Don't let a repository full of Medium labels imply nothing was missing — say the ceiling out loud too, per the Handoff requirement below.
 - Point the human at the contact in `${CLAUDE_PLUGIN_ROOT}/skills/orchestrator/references/contact-list.md`.
 
+**State the outcome to the human in chat, either way, before reading anything.** Either "Invoking `leisure-research-insights` now to read [sources]" or the degraded-branch message above with the contact named per `conventions.md` §9. The human shouldn't have to open `_workflow-state.md` to find out whether delegation actually happened. If it didn't happen and the reason isn't genuine unavailability, that's an unlogged process gap, not a quiet shortcut — log it in `_workflow-state.md`'s Open Gaps & Overrides table, the same way a skipped Round 2 waiver gets logged.
+
 **Everything else — attachments, Great Question transcripts, Qualtrics and Usabilla exports, PowerBI reports, arbitrary URLs — read directly** with standard file and web tools. No specialist skill covers these yet; expect gaps on first real use and flag them rather than papering over them.
 
 **Discover → approve loop, mandatory.** Whenever a source references a secondary artefact — a hyperlink inside a PDF pointing at another Miro board, a Confluence page citing another page — **stop**. List every secondary artefact found so far, with enough context for the human to judge relevance without opening each one, and wait for explicit approval before fetching any of them. All, some, or none.
@@ -97,15 +101,21 @@ Do this before producing any output. Never silently expand scope: an agent that 
 
 ## Step 5 — Ask follow-up questions (Round 2)
 
-Informed by what the sources actually contained — not generic. Three likely triggers:
+This step runs every time, even when the sources look complete. Informed by what the sources actually contained — not generic. Three likely triggers:
 
 - A hypothesis with **no evidence either way**
 - **Conflicting signals** between sources, or between attitudinal and behavioural data
 - **Thin coverage** in an area the Brief flagged as important
 
+**Check for these triggers explicitly, against the draft Hypothesis Validation Map and Additional Insights you're about to write — not from memory.** Before moving to Step 6, re-read every entry you're about to record. Any entry landing on Still Unvalidated, any pair of entries that disagree, and any hypothesis the Brief flagged as important but sourced thinly, is a trigger — even if a source's own caveats already discuss it. A source explaining its own limitation is not the same as the human confirming what to do about it.
+
+**Don't resolve a trigger yourself and move on.** If you find a trigger, it goes to the human — even ones you're confident you already understand from the source material. Surfacing it costs one round-trip; silently deciding on the human's behalf is exactly the failure this step exists to prevent.
+
 Count the issues first and tell the human roughly how many are coming. Per-issue option sets are in `references/source-elicitation-prompts.md`. Treat any "I can explain" / "I have context" answer as a prompt to ask a plain follow-up, not as a complete answer.
 
-Don't proceed to synthesis until every issue raised this round is resolved or explicitly waived.
+**If, after this check, there are genuinely zero triggers, say so explicitly to the human as a one-line statement** (e.g. "No Round 2 follow-ups this time — every hypothesis has either clear single-direction evidence or was already flagged Still Unvalidated with nothing to adjudicate") **before moving to Step 6.** A silent skip and an explicit "nothing to ask" look identical in the output; only one of them is auditable.
+
+Don't proceed to synthesis until every issue raised this round is resolved or explicitly waived by the human. A waiver the agent grants itself doesn't count — log any human waiver in `_workflow-state.md`'s Open Gaps & Overrides table, same as a P0 override at Intake.
 
 ## Step 6 — Synthesise
 
@@ -134,7 +144,11 @@ Record both artefacts in the Artefact Registry in `_workflow-state.md`.
 
 ## Handoff
 
-Evidence is done when: every Brief hypothesis is addressed as Confirmed, Revised or Still Unvalidated with none silently dropped; every insight carries a source and a confidence label; the discover-approve loop was followed for any secondary artefacts; and the repository and deck are saved and in sync.
+Evidence is done when: every Brief hypothesis is addressed as Confirmed, Revised or Still Unvalidated with none silently dropped; every insight carries a source and a confidence label; **Round 2 was actually run — either real triggers were surfaced to the human and resolved or waived by them, or the human was explicitly told none were found**; **`leisure-research-insights` was actually invoked for any Confluence, Jira, Miro or FullStory source this stage touched — not bypassed in favour of calling those tools directly, and not left undeclared**; the discover-approve loop was followed for any secondary artefacts; and the repository and deck are saved and in sync.
+
+**Round 2 is not optional and cannot be inferred as complete from the repository alone.** If you can't point to the moment the human was asked (or the moment they were told there was nothing to ask), it didn't happen — go back to Step 5 before declaring Evidence done.
+
+**Delegation is not optional either, and the same test applies.** If you can't point to the moment `leisure-research-insights` was invoked, or the moment the human was told it was unavailable and why, it didn't happen — reading Confluence, Jira, Miro or FullStory directly without either of those moments is a gap to log, not a stage to hand off.
 
 Then give the human a table — what's confirmed, what's revised, what's still unvalidated, and what net-new insights emerged that weren't in the Brief. Call out anything thin, and say what research would firm it up. That table, not the files, is what Analyse-Explore actually consumes.
 

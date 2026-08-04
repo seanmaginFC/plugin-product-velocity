@@ -62,6 +62,7 @@ metric needs to say so.
 | Date | Stage | Gap or override | Reason given |
 |---|---|---|---|
 | dd/MM/YYYY | 1 | e.g. P0 "success metric" unanswered — proceeded on designer override | e.g. "analytics owner on leave, will backfill" / "no reason given" |
+| dd/MM/YYYY | 2 | e.g. Round 2 trigger "no evidence for guest-session persistence" — human waived | e.g. "no source available this round, revisit next sprint" |
 
 ---
 
