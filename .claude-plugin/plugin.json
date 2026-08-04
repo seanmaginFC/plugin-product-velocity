@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "product-velocity",
+  "displayName": "Product Velocity",
+  "version": "0.1.0",
+  "description": "Evidence-led UX design workflow. Turns a stakeholder kickoff into a Project Brief, validates its hypotheses into a research repository, then produces comparable recommendations and a Design Brief — with gaps, hypotheses and confidence kept visible throughout.",
+  "author": {
+    "name": "Flight Centre Travel Group — Design"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "ux",
+    "design",
+    "research",
+    "user-research",
+    "project-brief",
+    "design-brief",
+    "discovery",
+    "accessibility",
+    "wcag"
+  ]
+}

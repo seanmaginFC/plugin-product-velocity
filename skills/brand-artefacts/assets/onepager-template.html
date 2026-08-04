@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<title>[Project Name] — Executive Summary</title>
+
+<!-- FONT BLOCK — keep only this brand's line. See deck-template.html for the others. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* TOKEN BLOCK — fill from references/brand-tokens.md. Values below are FC. */
+:root{
+  --brand-primary: #d40119;
+  --bg-base:       #ffffff;
+  --bg-container:  #f5f5f5;
+  --text-heading:  #212121;
+  --text-body:     #424242;
+
+  --font-heading: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  --font-body:    'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+
+  /* A4 at 96dpi, 20mm margins. Do not reduce to force a fit. */
+  --page-w: 794px;
+  --page-h: 1123px;
+  --margin: 76px;
+}
+*,*::before,*::after{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{background:#8a8a8a;font-family:var(--font-body);color:var(--text-body);-webkit-font-smoothing:antialiased;}
+
+.page{
+  position:relative;
+  width:var(--page-w);
+  height:var(--page-h);          /* fixed height — content that exceeds it visibly spills */
+  margin:0 auto;
+  padding:var(--margin);
+  background:var(--bg-base);
+  display:flex;flex-direction:column;
+}
+
+/* THE FIT TEST — the boundary is drawn on screen and hidden in print.
+   If text crosses this line, CUT CONTENT. Do not shrink type or margins. */
+.page::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;
+  border-top:2px dashed #d0021b;pointer-events:none;
+}
+.overflow-note{
+  width:var(--page-w);margin:8px auto 24px;
+  font-size:13px;color:#fff;opacity:.9;text-align:center;
+}
+
+.masthead{border-bottom:4px solid var(--brand-primary);padding-bottom:16px;margin-bottom:24px;}
+h1{font-family:var(--font-heading);font-size:27px;line-height:1.2;font-weight:700;
+   color:var(--text-heading);margin:0 0 6px;letter-spacing:-.01em;}
+.pitch{font-size:15px;line-height:1.4;color:var(--text-body);margin:0;}
+.meta{font-size:11.5px;color:var(--text-body);opacity:.75;margin:10px 0 0;}
+
+h2{font-family:var(--font-heading);font-size:13px;font-weight:700;text-transform:uppercase;
+   letter-spacing:.07em;color:var(--brand-primary);margin:20px 0 7px;}
+h2:first-of-type{margin-top:0;}
+
+/* Narrative memo: full sentences, not bullets — except What We're Doing About It,
+   which is deliberately a short action list (see brand-artefacts SKILL.md). 11pt body,
+   the readable floor. */
+p{font-size:14.7px;line-height:1.52;margin:0 0 11px;}
+p:last-child{margin-bottom:0;}
+.body{flex:1;min-height:0;}
+
+/* The action list — the section carrying the momentum. Only bulleted section on the page. */
+.next-steps{background:var(--bg-container);border-left:4px solid var(--brand-primary);
+     padding:15px 18px;margin:4px 0 18px;}
+.next-steps h2{margin-top:0;}
+.next-steps ul{margin:0;padding-left:1.15em;}
+.next-steps li{font-size:14.7px;line-height:1.5;margin-bottom:8px;}
+.next-steps li:last-child{margin-bottom:0;}
+
+.logo{margin-top:auto;padding-top:20px;}
+.logo svg{height:22px;width:auto;display:block;}
+
+@page{size:A4;margin:20mm;}
+@media print{
+  body{background:none;}
+  .page{width:auto;height:auto;min-height:0;margin:0;padding:0;}
+  .page::after{display:none;}
+  .overflow-note{display:none;}
+  *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+}
+@media screen{ body{padding:24px 0;} .page{box-shadow:0 2px 16px rgba(0,0,0,.28);} }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="masthead">
+    <h1>[Project Name]</h1>
+    <p class="pitch">[One-line pitch — what this is, in a sentence a stakeholder can repeat.]</p>
+    <p class="meta">Project Brief · [Sub-brand] · [dd/MM/YYYY] · [Designer name]</p>
+  </div>
+
+  <div class="body">
+    <h2>The problem</h2>
+    <p>[Customer and business pain, and the current state, in plain terms — strictly
+    external/commercial. What isn't working, and who it costs. No internal process detail:
+    a missing metric definition, a stakeholder disagreement or an unnamed owner belongs in
+    "What we're doing about it" below, not here. Full sentences — this is a memo for a senior
+    reader with ninety seconds and no meeting context, not a slide. No jargon, no unexpanded
+    internal acronyms.]</p>
+
+    <h2>Why now</h2>
+    <p>[What is driving the timing. If nothing was said at kickoff, say so — the absence is
+    itself signal, and inventing urgency is worse than reporting none.]</p>
+
+    <div class="next-steps">
+      <h2>What we're doing about it</h2>
+      <ul>
+        <li>[Concrete near-term action, sourced from the Brief's Intake Notes or its "Next
+        stage" line. Owner and rough timing if known: "Confirming the attach-rate baseline
+        and owner with Analytics — this week." If a gap has no named owner, say "owner TBD"
+        rather than inventing one.]</li>
+        <li>[Second action.]</li>
+        <li>[Third action, if there is one. 3–5 items total.]</li>
+      </ul>
+    </div>
+
+    <h2>What success looks like</h2>
+    <p>[The metrics from Success Criteria, with baselines where known. If no metric was
+    defined, state that plainly rather than implying one exists.]</p>
+
+    <h2>What could go wrong</h2>
+    <p>[The top one or two risks, briefly.]</p>
+
+    <!-- Decision needed — OPTIONAL, see brand-artefacts SKILL.md. Delete this h2 and p
+         entirely if every open item already has an owner and a next action above; don't
+         manufacture an ask to fill the section. -->
+    <h2>Decision needed</h2>
+    <p>[The specific decision or resource needed, and from whom — only if the team can't
+    resolve it under its own steam via the actions above.]</p>
+  </div>
+
+  <!-- No invented solution or direction at Intake: "What we're doing about it" describes
+       the workflow's next actions, never a product answer that doesn't exist yet. -->
+
+  <div class="logo"><!-- inline SVG from assets/logos/<brand>-logo-on-light.svg --></div>
+
+</div>
+
+<p class="overflow-note">Screen only — the dashed line is the A4 page boundary. If content crosses it, cut words. Do not reduce type size or margins.</p>
+
+</body>
+</html>

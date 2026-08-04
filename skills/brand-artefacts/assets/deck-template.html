@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<title>[Project Name] — [Artefact Name]</title>
+
+<!-- ============================================================
+     FONT BLOCK — isolated deliberately.
+     Keep ONLY the line for this project's brand. Delete the rest.
+     To move off the CDN later (embedded woff2), replace this block
+     only; nothing else in the file references fonts by URL.
+     ============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- FC   --><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<!-- TA   --><!-- <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet"> -->
+<!-- W360 --><!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"> -->
+<!-- TC   --><!-- <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> -->
+
+<style>
+/* ============================================================
+   TOKEN BLOCK — fill from references/brand-tokens.md
+   Values below are FC. Replace all of them when switching brand.
+   Do not invent a value that isn't in brand-tokens.md.
+   ============================================================ */
+:root{
+  --brand-primary:   #d40119;
+  --brand-secondary: #a60106;
+  --brand-tertiary:  #0072ea;   /* FC: accent-only — never text, never behind text */
+  --bg-base:         #ffffff;
+  --bg-container:    #f5f5f5;
+  --bg-section:      #e0e0e0;
+  --bg-alt:          #ffffff;   /* TA only: #fffbf5. Others = same as --bg-base */
+  --text-heading:    #212121;
+  --text-body:       #424242;
+  --text-on-fill:    #ffffff;
+
+  --font-heading: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  --font-body:    'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+
+  /* Layout — do not change; these keep artefacts consistent across brands */
+  --slide-w: 1280px;
+  --slide-h: 720px;
+  --safe:    72px;   /* safe zone: nothing outside this */
+  --gutter:  28px;
+  --rule:    8px;    /* footer rule height */
+}
+
+/* ---------- reset ---------- */
+*,*::before,*::after{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:#8a8a8a;               /* screen gutter only; never prints */
+  font-family:var(--font-body);
+  color:var(--text-body);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---------- slide shell ---------- */
+.slide{
+  position:relative;
+  width:var(--slide-w);
+  height:var(--slide-h);
+  margin:0 auto 24px;
+  padding:var(--safe);
+  background:var(--bg-base);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  page-break-after:always;
+  break-after:page;
+}
+.slide:last-child{margin-bottom:0;page-break-after:auto;break-after:auto;}
+
+/* footer rule — light-background slides only */
+.slide--content::after,.slide--split::after,.slide--cards::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;
+  height:var(--rule);background:var(--brand-primary);
+}
+/* logo — every slide. Light-background slides use -on-light.svg; slide--title
+   and slide--divider (brand-primary fill) use -on-dark.svg. Give every inlined
+   copy's id (and its url(#...) references) a unique per-slide suffix — see
+   "Duplicate-ID hardening" in references/brand-tokens.md. */
+.logo{position:absolute;left:var(--safe);bottom:calc(var(--rule) + 24px);}
+.logo svg{height:26px;width:auto;display:block;}   /* height-normalised: aspect ratios vary 3.1:1–7.55:1 */
+.slide-no{
+  position:absolute;right:var(--safe);bottom:calc(var(--rule) + 26px);
+  font-size:14px;color:var(--text-body);opacity:.65;
+}
+
+/* ---------- type scale ---------- */
+h1,h2,h3{font-family:var(--font-heading);color:var(--text-heading);margin:0 0 var(--gutter);}
+h1{font-size:66px;line-height:1.06;font-weight:700;letter-spacing:-.02em;}
+h2{font-size:46px;line-height:1.12;font-weight:700;letter-spacing:-.01em;}
+h3{font-size:28px;line-height:1.25;font-weight:600;}
+p,li{font-size:22px;line-height:1.5;margin:0 0 16px;}
+.lede{font-size:28px;line-height:1.4;color:var(--text-heading);}
+.caption{font-size:16px;line-height:1.4;color:var(--text-body);opacity:.8;}
+strong{font-weight:600;color:var(--text-heading);}
+ul{margin:0 0 16px;padding-left:1.1em;}
+li{margin-bottom:12px;}
+.slide-body{flex:1;min-height:0;overflow:hidden;}
+
+/* ---------- LAYOUT 1: title (brand fill, on-dark logo) ---------- */
+.slide--title{background:var(--brand-primary);justify-content:flex-end;}
+.slide--title h1,.slide--title p,.slide--title .caption{color:var(--text-on-fill);}
+.slide--title .caption{opacity:.9;}
+.slide--title .meta{font-size:22px;color:var(--text-on-fill);opacity:.9;margin-top:8px;}
+
+/* ---------- LAYOUT 2: section divider ---------- */
+.slide--divider{background:var(--brand-primary);justify-content:center;}
+.slide--divider h2{color:var(--text-on-fill);margin:0;}
+
+/* ---------- LAYOUT 3: content ---------- */
+/* uses the shell defaults */
+
+/* ---------- LAYOUT 4: split ---------- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:calc(var(--gutter)*2);height:100%;}
+.split--narrow{grid-template-columns:1.4fr 1fr;}
+
+/* ---------- LAYOUT 5: cards ---------- */
+.cards{display:grid;gap:var(--gutter);height:100%;}
+.cards--2{grid-template-columns:repeat(2,1fr);}
+.cards--3{grid-template-columns:repeat(3,1fr);}
+.cards--4{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr);}
+.card{
+  background:var(--bg-container);
+  border-left:4px solid var(--brand-primary);
+  padding:28px;overflow:hidden;
+}
+.card h3{margin-bottom:12px;}
+.card p,.card li{font-size:19px;}
+
+/* ---------- components ---------- */
+/* Text labels, never colour alone (WCAG 1.4.1) */
+.badge{
+  display:inline-block;font-family:var(--font-heading);font-size:14px;font-weight:600;
+  line-height:1;padding:7px 12px;margin:0 8px 10px 0;
+  background:var(--brand-primary);color:var(--text-on-fill);
+  text-transform:uppercase;letter-spacing:.06em;
+}
+.confidence{
+  display:inline-block;font-size:14px;font-weight:600;line-height:1;
+  padding:6px 11px;margin:0 8px 10px 0;
+  border:2px solid var(--text-heading);color:var(--text-heading);
+  text-transform:uppercase;letter-spacing:.06em;
+}
+.gap{
+  border-left:4px solid var(--text-heading);
+  background:var(--bg-container);
+  padding:20px 24px;margin:0 0 16px;
+}
+.gap::before{
+  content:"UNRESOLVED";display:block;
+  font-family:var(--font-heading);font-size:13px;font-weight:700;
+  letter-spacing:.08em;color:var(--text-heading);margin-bottom:8px;
+}
+.gap p{margin:0;font-size:20px;}
+.source{font-size:15px;color:var(--text-body);opacity:.85;margin-top:8px;}
+.rule{height:4px;background:var(--brand-primary);width:96px;margin:0 0 var(--gutter);}
+table{border-collapse:collapse;width:100%;font-size:19px;}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--bg-section);vertical-align:top;}
+th{font-family:var(--font-heading);font-weight:600;color:var(--text-heading);background:var(--bg-container);}
+
+/* ---------- print ---------- */
+@page{size:1280px 720px;margin:0;}
+@media print{
+  body{background:none;}
+  .slide{margin:0;box-shadow:none;}
+  *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }  /* keeps brand fills */
+}
+@media screen{ .slide{box-shadow:0 2px 16px rgba(0,0,0,.28);} body{padding:24px 0;} }
+</style>
+</head>
+<body>
+
+<!-- ===== 1. TITLE — brand fill, on-dark logo ===== -->
+<section class="slide slide--title">
+  <div class="slide-body" style="display:flex;flex-direction:column;justify-content:flex-end;">
+    <h1>[Project Name]</h1>
+    <p class="meta">[Artefact name] · [Sub-brand] · [dd/MM/YYYY]</p>
+  </div>
+  <div class="logo"><!-- inline SVG from assets/logos/<brand>-logo-on-dark.svg — remember the unique-id suffix --></div>
+</section>
+
+<!-- ===== 2. CONTENT ===== -->
+<section class="slide slide--content">
+  <div class="rule"></div>
+  <h2>[Section heading]</h2>
+  <div class="slide-body">
+    <p class="lede">[One idea per slide. If a section needs six points, it is two or three slides.]</p>
+  </div>
+  <div class="logo"><!-- inline SVG from assets/logos/<brand>-logo-on-light.svg --></div>
+  <span class="slide-no">2</span>
+</section>
+
+<!-- ===== 3. DIVIDER ===== -->
+<section class="slide slide--divider">
+  <h2>[Section name]</h2>
+  <div class="logo"><!-- inline SVG from assets/logos/<brand>-logo-on-dark.svg — remember the unique-id suffix --></div>
+</section>
+
+<!-- ===== 4. SPLIT ===== -->
+<section class="slide slide--content slide--split">
+  <div class="rule"></div>
+  <h2>[Heading]</h2>
+  <div class="slide-body split">
+    <div><h3>[Left]</h3><p>[…]</p></div>
+    <div><h3>[Right]</h3><p>[…]</p></div>
+  </div>
+  <div class="logo"><!-- inline SVG --></div>
+  <span class="slide-no">4</span>
+</section>
+
+<!-- ===== 5. CARDS — with insight components ===== -->
+<section class="slide slide--content slide--cards">
+  <div class="rule"></div>
+  <h2>[Heading]</h2>
+  <div class="slide-body cards cards--2">
+    <div class="card">
+      <span class="badge">Validates hypothesis</span>
+      <span class="confidence">High</span>
+      <h3>[Insight title]</h3>
+      <p>[Finding, in your own words — must exist in the source document.]</p>
+      <p class="source">Source: [named source]</p>
+    </div>
+    <div class="card">
+      <span class="confidence">Low</span>
+      <h3>[Net-new insight — no badge]</h3>
+      <p>[Finding.]</p>
+      <p class="source">Source: [named source]</p>
+    </div>
+  </div>
+  <div class="logo"><!-- inline SVG --></div>
+  <span class="slide-no">5</span>
+</section>
+
+<!-- ===== 6. GAP COMPONENT — render gaps, never omit them ===== -->
+<section class="slide slide--content">
+  <div class="rule"></div>
+  <h2>[Section heading]</h2>
+  <div class="slide-body">
+    <div class="gap">
+      <p>[e.g. No success metric was defined at kickoff. Proceeding on designer override — reason: analytics owner unavailable.]</p>
+    </div>
+  </div>
+  <div class="logo"><!-- inline SVG --></div>
+  <span class="slide-no">6</span>
+</section>
+
+</body>
+</html>
