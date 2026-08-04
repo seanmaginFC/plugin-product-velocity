@@ -28,9 +28,16 @@ raised.
 ### [Hypothesis statement, verbatim from the Project Brief] (hypothesis)
 
 **Status:** Confirmed / Revised / Still Unvalidated
-**Evidence:** [what was found — attitudinal, behavioural, or both]
+
+**Evidence:** [first idea or source, in its own short paragraph.]
+
+[Second idea or source in its own paragraph, if the evidence draws on more than one — a
+new blank-line-separated paragraph per idea, not one block chaining them with semicolons
+or "and". Keep going for as many ideas as there are.]
+
 **Confidence:** [High — triangulated across N sources / Medium — single strong source /
 Low — indicative only, thin evidence]
+
 **Source(s):** [named, with type and window — e.g. "FullStory session data, checkout flow,
 Jan–Mar 2026" / "Great Question interview transcript, P4, 10/02/2026"]
 
@@ -45,8 +52,11 @@ badge or special treatment — these are net-new, not lesser.
 
 ### [Insight title]
 
-**Finding:** [the claim, in your own words — not a quoted extract from the source]
+**Finding:** [the claim, in your own words — not a quoted extract from the source. Split
+across multiple short paragraphs, one per idea or source, the same as Evidence above.]
+
 **Confidence:** [High / Medium / Low, with brief justification]
+
 **Source(s):** [named]
 
 [Repeat per insight.]
@@ -87,6 +97,21 @@ of an insight live; every section above shows current state only.
 ---
 
 ## Notes on use
+
+**Status, Evidence, Confidence and Source(s) are four separate paragraphs, each with a
+blank line before and after — never four labels run together in one block.** Most
+Markdown and Confluence renderers collapse lines that aren't blank-line-separated into a
+single paragraph, so writing them on consecutive lines without a blank line between them
+produces exactly the dense, hard-to-read wall of text this format exists to avoid, even
+though the source file looks fine as raw text.
+
+**When Evidence or Finding draws on more than one source or covers more than one idea,
+split it into multiple short paragraphs — one per idea, blank line between them —** rather
+than chaining sources together with semicolons or "and" inside a single paragraph. This is
+`conventions.md` §1 ("one idea per paragraph") applied to the one section of this document
+most likely to violate it, because triangulated evidence naturally wants to pack every
+corroborating source into one breath. Splitting changes nothing about what's said, only how
+it's grouped — don't drop a caveat, quote or figure in the process.
 
 **Overwrite, don't duplicate.** When new evidence changes an entry, edit that entry in place. Don't leave the old version above or below it "for reference" — two versions of a finding in one document means a downstream stage has to guess which is current, and it will sometimes guess wrong.
 
