@@ -55,7 +55,7 @@ Starting from the template rather than from scratch is what makes artefacts cons
 
 **Single self-contained HTML file.** One file, no sidecar assets:
 
-- **Logos inline as SVG markup** — not `<img src="">`, which breaks the moment the file is emailed, and not base64, which is larger than the raw markup and can't be styled. Copy the SVG from `assets/logos/` directly into the body.
+- **Logos inline as SVG markup** — not `<img src="">`, which breaks the moment the file is emailed, and not base64, which is larger than the raw markup and can't be styled. **Copy the file's full contents from `assets/logos/` byte-for-byte** — open it, copy everything between `<svg>` and `</svg>`, and paste it in. **Never redraw, approximate, simplify or shorten the path data to save space or context** — a lookalike path that renders roughly the right shape and colour is not the same logo, and this is a brand-integrity failure a designer will notice immediately even when nothing else is wrong. If file size is a genuine concern, say so and ask, rather than quietly substituting a smaller stand-in.
 - **Fonts via the Google Fonts CDN**, in the marked block in the template. Keep only the brand's families and only weights 400/600/700; every extra weight is another request before the slide paints.
 - **No JavaScript required to read the artefact.** A stakeholder printing to PDF should get the same thing they see on screen.
 
@@ -160,15 +160,17 @@ WCAG 2.1 AA is the baseline, and these are stakeholder-facing documents that get
 A file that saved isn't an artefact that works. Check, in this order:
 
 1. **The file exists and is the expected size** — a 2 KB deck means the content didn't make it in.
-2. **Slide count matches the structure** — twelve slides for a Brief deck, not seven because sections were skipped.
-3. **Spot-check content against the source document** — pick two or three specific claims, figures or insights and confirm each appears in the source markdown. This is the check that catches fabrication.
-4. **Every hypothesis tag, badge and confidence label carried through.**
-5. **One-pager only**: confirm it fits the page container without overflow.
-6. **Record it** in the Artefact Registry in `_workflow-state.md` — filename, type, and the sub-brand used, so a later stage restyles consistently instead of guessing.
+2. **Logo fidelity** — for every inlined logo instance, confirm the path data was copied from `assets/logos/<file>.svg`, not redrawn or shortened. Rough tell: the source files run from ~9 KB (TC) to ~61 KB (W360) with dozens of path elements each; an inlined mark with only one or two short paths is not the real logo, regardless of colour or approximate shape. Count `<path>` elements per logo instance and compare to the source file if unsure.
+3. **Slide count matches the structure** — twelve slides for a Brief deck, not seven because sections were skipped.
+4. **Spot-check content against the source document** — pick two or three specific claims, figures or insights and confirm each appears in the source markdown. This is the check that catches fabrication.
+5. **Every hypothesis tag, badge and confidence label carried through.**
+6. **One-pager only**: confirm it fits the page container without overflow.
+7. **Record it** in the Artefact Registry in `_workflow-state.md` — filename, type, and the sub-brand used, so a later stage restyles consistently instead of guessing.
 
 **Report two disclosures explicitly, every time an artefact is delivered — each its own labelled line, never folded into the other or into an unrelated disclosure (like Intake's inferred-vs-transcribed note):**
 
 - **The spot-check, named as such:** "Spot-checked [N] claims against the source — [list them briefly]." A check that isn't reported this way is indistinguishable from a check that didn't happen — don't let it get absorbed into a different disclosure where it's no longer legible on its own.
+- **Logo fidelity, named as such:** "Logo: copied verbatim from `assets/logos/[file].svg`, [N] path elements, unique clip-path ID per instance." If it wasn't copied verbatim, say so plainly rather than letting a roughly-right-looking logo pass unremarked.
 - **The standing limitation, even on a clean pass:** "Structural checks passed (file size, slide/section count, content spot-check). I haven't visually rendered this — worth opening it yourself to confirm layout, PDF export, and offline font fallback." No text-based check can confirm layout, print output, or font fallback, so say so every time rather than letting a clean structural pass imply those were checked too.
 
 If a check fails, say which one and what you found. Reporting "deck created" when slide 6 is empty is the kind of error a designer only discovers in the meeting.
