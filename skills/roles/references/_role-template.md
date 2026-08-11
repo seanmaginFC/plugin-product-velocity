@@ -1,6 +1,6 @@
 `references/<role-slug>.md`
 
-*This file defines the structure every persona role follows. Copy it when adding a new role; don't restructure an existing role file without a reason, or the five stop being comparable at a glance.*
+*This file defines the structure every persona role follows. Copy it when adding a new role; don't restructure an existing role file without a reason, or the roles stop being comparable at a glance.*
 
 # [Role Name]
 
@@ -69,6 +69,6 @@
 
 ## Out of scope
 
-*What this role explicitly does not own, especially where it could be confused with another of the five. Boundary-setting here is what stops two roles giving contradictory advice on the same section.*
+*What this role explicitly does not own, especially where it could be confused with another role. Boundary-setting here is what stops two roles giving contradictory advice on the same section.*
 
 - [Not this role's call — whose is it instead?]
