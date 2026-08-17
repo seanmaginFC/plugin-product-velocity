@@ -23,7 +23,7 @@ Every stage in this plugin already asks *what does the evidence support*. Person
 | Product Leader | Intake, Analyse-Explore | Strategic framing, Executive Summary, Success Criteria, the case for funding |
 | Business Analyst | Intake, Analyse-Explore | Requirements rigour, scope & constraints precision, Functional/Non-Functional Requirements |
 | CX/UX Research | Evidence | Triangulation discipline, bias-checking, insight and confidence quality |
-| Senior Product Designer | Analyse-Explore | Recommendation mechanism quality, usability heuristics, design-system fit |
+| Senior Product Designer | Intake, Evidence, Analyse-Explore | User-experience read on JTBD & Current State, experience implications of validated insights, recommendation mechanism quality, Design Brief/Prompt build-readiness |
 | Delivery Lead | Intake, Analyse-Explore | Feasibility, dependencies, sequencing, risk realism |
 
 This mapping is a starting point recorded here for convenience, not a constraint enforced anywhere in code — a role's own reference file is free to note it applies to an additional stage once it's actually written, and a stage skill should read the role file rather than trusting this table if the two ever disagree.

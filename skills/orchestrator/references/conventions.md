@@ -25,6 +25,12 @@ Dates in documents are `dd/MM/YYYY`.
 - Confidence labels (`High` / `Medium` / `Low`), hypothesis tags (`(hypothesis)`), and status words (`Confirmed`, `Still Unvalidated`, `Deferred`) are fixed vocabulary. Keep them exactly as defined; don't soften them into something friendlier-sounding.
 - Required technical terms (WCAG 2.1 AA, P0/P1, a named research method) stay as-is once introduced. Plain language means explaining a term, not replacing it with something vaguer.
 
+**Don't invent the "why."** A confident explanation for a rule, a finding, a design choice or a convention reads to a stakeholder exactly like a documented fact — even when the reasoning behind it is a guess. This is a different failure from the ones §4 already covers: those are about inventing *what* was found; this is about inventing *why* something is true, why a rule exists, or why a decision was made.
+
+- **A plausible reason is not a documented reason.** If you're about to write "this happens because X" or "the rule exists to prevent Y," check whether X or Y is actually stated somewhere — the source material, the Project Brief, a named convention in this file — or whether it's your own inference filling a gap. Only the first is a fact.
+- **When the real reason isn't written down anywhere, say so first**, then offer your own reasoning clearly labelled as a guess — "the docs don't say why; my best read is…" — never folded in as if it were the settled explanation. This extends §4's "flag your own inference" rule from research synthesis to any explanatory sentence, in any stage's output, including this file.
+- **This matters most in anything that might reach an executive.** A stakeholder rarely checks a "because" clause against its source — it's the line most likely to be read, trusted and repeated exactly as written. An invented rationale that ships in a Design Brief or an executive summary is fabrication with extra steps, the same as an invented figure, and does more damage for being harder to spot.
+
 **Visual space between ideas.** A wall of text is as hard to read as a wall of jargon, so break content up rather than running it together.
 
 - **One idea per paragraph.** When a paragraph is doing two jobs, split it into two.
