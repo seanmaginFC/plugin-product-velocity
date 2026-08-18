@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#
+# Product Velocity pre-commit hook.
+#
+# Not active by default — git doesn't auto-load hooks from a tracked
+# directory. Each contributor opts in once per clone with:
+#   git config core.hooksPath .githooks
+#
+# After that, this runs scripts/check.sh before every commit and blocks
+# the commit if either check fails.
+
+exec "$(git rev-parse --show-toplevel)/scripts/check.sh"

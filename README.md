@@ -81,11 +81,19 @@ Two files are meant to be edited. Neither contains logic, so changing them can't
 
 ## For maintainers
 
-Validate before distributing:
+**Run checks locally before committing.** `scripts/check.sh` runs the same two checks CI runs — `claude plugin validate . --strict` (structure) and `scripts/lint_plugin.py` (this repo's own conventions: cross-references resolve, no stage restates a rule that lives in `conventions.md`, role Status lines are well-formed, no stray `[TBD]` in an Active role). Run it any time with:
 
 ```bash
-claude plugin validate ./product-velocity --strict
+scripts/check.sh
 ```
+
+To have it run automatically before every commit, opt in once per clone:
+
+```bash
+git config core.hooksPath .githooks
+```
+
+CI (`.github/workflows/plugin-checks.yml`) runs the identical checks on every push and PR — the backstop for anyone who skips the hook, not the primary way to find out something's broken.
 
 **Versioning.** `version` is set in `plugin.json`, which means **you must bump it for teammates to receive changes** — pushing commits alone won't do it, because Claude sees the same version string and keeps the cached copy. While iterating rapidly, either remove the `version` field (updates then follow the git commit SHA) or bump the patch number on each change. Local and skills-directory installs pick up `SKILL.md` edits immediately, so version only matters once you're distributing.
 

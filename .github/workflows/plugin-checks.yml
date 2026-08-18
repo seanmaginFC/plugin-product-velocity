@@ -1,0 +1,36 @@
+name: Plugin checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  structural-validate:
+    name: "Layer 1 — structural validation"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Validate plugin manifest and structure
+        run: claude plugin validate . --strict
+
+  convention-lint:
+    name: "Layer 2 — convention linter"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run convention linter
+        run: python3 scripts/lint_plugin.py
