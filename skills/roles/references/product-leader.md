@@ -2,7 +2,7 @@
 
 # Product Leader
 
-*Status: Draft · Last Updated: 17/08/2026 · Author: Sean Magin*
+*Status: Active · Last Updated: 17/08/2026 · Author: Sean Magin*
 
 ## Purpose
 

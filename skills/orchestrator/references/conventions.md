@@ -188,3 +188,11 @@ This is the shared fallback for **any** connector-backed tool — Atlassian (Con
 > "[Source categories / connector] aren't reachable this session because [reason]. [What still works]. Contact **[name from contact-list.md]** if you want this connected."
 
 Treat every bracket as required. A message that reports unavailability but never fills in the contact bracket is incomplete, not just brief — reading `contact-list.md` and then not naming what's in it satisfies the letter of "check the contact list" while missing the entire point of checking it.
+
+---
+
+## 10. Persona roles
+
+`roles` is the single source of truth for the persona lenses that sharpen judgement-heavy sections across every stage. Each stage skill names which role(s) apply at which of its own steps — that mapping lives in the stage skill, not here.
+
+**Whether a named role actually applies, and in which mode, is defined entirely in `skills/roles/SKILL.md` — read it before applying any role**, the same way `brand-artefacts` is read fresh before any rendered artefact rather than worked from memory. Don't restate or re-derive its rules here or in a stage skill. If `roles/SKILL.md` and a stage skill's own text ever disagree about how a role engages, `roles/SKILL.md` wins for roles specifically, the same way this file wins over a stage skill for everything else.

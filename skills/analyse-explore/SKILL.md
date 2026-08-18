@@ -92,6 +92,11 @@ Every approach, whichever pattern:
 
 **If the evidence only cleanly supports two distinct directions, present two and say so.** A manufactured third option is worse than an honest two: it wastes the human's evaluation time and implies a breadth of evidence that doesn't exist.
 
+**Apply persona lenses to the generated approaches before presenting them**, per `conventions.md` §10. 
+[ ] Senior Product Designer checks each approach is a genuinely different mechanism — not a cosmetic variant of another — and traces back to the Problem Statement. 
+[ ] Delivery Lead gives a feasibility read: dependencies named specifically enough to size, and what's most likely to slip. 
+[ ] Product Leader checks the framing would survive being defended, and that a bolder option was at least considered rather than only the safe one.
+
 ## Step 5 — Present the recommendations
 
 **If more than one target was recorded, present one pattern group at a time**, each under its own heading naming the pattern ("Pattern A — UI screen / feature design"), with its own approaches and its own comparison table. Don't interleave approaches from different groups, and don't merge them into a single table — see `recommendation-patterns.md` for why.
@@ -143,6 +148,8 @@ Edit `project-brief.md` in place. It stays the single canonical Brief — don't 
 - The screens and states needed to support it
 - A short stakeholder-facing paragraph justifying the benefit of building it — the "why fund this", not a repeat of the requirements
 
+[ ] **Business Analyst** reads the Functional and Non-Functional Requirements before this section is considered done, per `conventions.md` §10: every Functional Requirement should be testable (Given/When/Then or rewritable as one), traceable to a business objective, and every Non-Functional Requirement should carry a real threshold rather than unquantified language like "should be fast".
+
 **If the target is a journey map, service blueprint, or content/communications design**, add or update a **Recommendations** section instead:
 
 - The key sequence of stages, or message beats for content
@@ -150,6 +157,8 @@ Edit `project-brief.md` in place. It stays the single canonical Brief — don't 
 - A short stakeholder-facing justification for producing the artefact
 
 **If more than one target was recorded** — a journey map plus supporting UI screens, say — include both sections, one per pattern group with a chosen direction, cross-referenced so it reads as one combined direction rather than two unrelated ideas. Recommendations first, then Proposed State. This is the normal path once Step 2 allows multiple targets, not a rare edge case.
+
+**Product Leader reads whichever "why fund this" justification was just written** — the Proposed State paragraph, the Recommendations justification, or both — per `conventions.md` §10: does it state the outcome before the mechanism, would it survive being defended, and is the opportunity cost named.
 
 ## Step 8 — Regenerate existing artefacts
 
@@ -187,6 +196,10 @@ Living documents — regenerate whenever the Brief's Proposed State or Recommend
 
 Every artefact produced here includes project context, the chosen recommendation restated plainly, the solution's own design system and brand, and an evidence summary with confidence labels so whoever — or whatever — builds from it understands *why*, not just *what*. This is never `brand-artefacts` — that's this workflow's own document styling, not the product being designed. Weighting per target type is in each template.
 
+**Senior Product Designer and Business Analyst both read the produced artefact(s) before Step 11**, per `conventions.md` §10. 
+[ ] Senior Product Designer checks build-readiness — interaction states, edge cases, error handling, UI-level specificity a build actually needs. 
+[ ] Business Analyst checks the requirements carried into the artefact are still testable and precise, not softened in translation from the Project Brief.
+
 ## Step 11 — Human reviews the artefact(s)
 
 Same principle as Step 9. Whatever was built directly against — `design-brief.md`, `design-prompt.md`, or both — an error here propagates into the design, so don't proceed until reviewed. If both were produced, both need review; a human signing off on the brief hasn't necessarily read the prompt meant for the AI tool.
@@ -202,6 +215,8 @@ Then give the human a table:
 | **Decided** | The chosen recommendation and what's now in the Project Brief |
 | **Deferred** | Options considered but not chosen — kept in `opportunities-analysis.md`, not discarded |
 | **Open for the next stage** | Anything still thin, unvalidated or ambiguous that whoever builds the design will need to handle or flag |
+
+**Delivery Lead reads this table before it's shared**, per `conventions.md` §10: is anything marked Decided actually still blocked on an unresolved dependency, and does the sequencing implied by what's Open for the next stage hold up as a realistic order rather than just a list.
 
 Product Velocity currently ends here. If the human asks what comes next, say plainly that the Design Brief is the current end of the workflow and the design itself is built outside the plugin.
 

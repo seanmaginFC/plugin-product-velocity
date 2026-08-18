@@ -117,6 +117,8 @@ Count the issues first and tell the human roughly how many are coming. Per-issue
 
 Don't proceed to synthesis until every issue raised this round is resolved or explicitly waived by the human. A waiver the agent grants itself doesn't count — log any human waiver in `_workflow-state.md`'s Open Gaps & Overrides table, same as a P0 override at Intake.
 
+CX/UX Research's own Mindset questions — confirmation bias, leading questions behind the source data, whether a claimed pattern is actually multiple independent sources or one strong quote — are exactly what this step's trigger-check should already be running. Per `conventions.md` §10, treat CX/UX Research's Mindset questions as this step's own checklist.
+
 ## Step 6 — Synthesise
 
 Insights are unrestricted in scope — don't force everything into a hypothesis slot.
@@ -127,6 +129,11 @@ Weight emphasis by the design output target(s) from Step 2: journey-wide behavio
 - **New insight** — doesn't map to anything in the Brief. No special treatment; just as valid, only not pre-existing.
 
 The anti-fabrication and confidence-labelling rules in `conventions.md` §4 apply throughout, and this is the stage they exist for. Two that get broken most often: where attitudinal and behavioural data diverge on the same point, say so explicitly — divergence is itself a finding, not a discrepancy to reconcile. And a hypothesis being *addressed* this stage doesn't make it settled; only an explicit Confirmed status does that.
+
+**Apply persona lenses before moving to Step 7**, per `conventions.md` §10. 
+
+[ ] CX/UX Research reads the finished Hypothesis Validation Map and Additional Insights: does every conclusion actually trace to the cited evidence, does a High label reflect real triangulation, has attitudinal-vs-behavioural divergence been stated rather than smoothed over. 
+[ ] Senior Product Designer then reads the same validated insights for what they imply about the experience, without touching a confidence label or triangulation call — that stays CX/UX Research's alone.
 
 ## Step 7 — Produce the artefacts
 

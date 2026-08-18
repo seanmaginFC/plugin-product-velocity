@@ -11,10 +11,13 @@ Every stage in this plugin already asks *what does the evidence support*. Person
 
 ## Status
 
-**This skill is scaffolding.** The role reference files below currently hold the template structure only — the substance (checklists, heuristics, voice) hasn't been authored yet. Until a role's file is filled in beyond its template placeholders:
+Role files define a Purpose, Mindset, Critique checklist and Voice section. Each also carries its own `Status` line.
 
-- **Don't fabricate a checklist or voice on its behalf** from a generic idea of what a "Business Analyst" typically does. That produces confident-sounding advice with no actual grounding — the exact failure mode `conventions.md` §4 exists to prevent everywhere else in this plugin, and there's no reason a persona lens should be exempt from it.
-- **If a stage would normally consult a role and its file is still a template, say so plainly and skip that lens** rather than improvising one silently. A missing lens is a visible gap, the same way a missing dependency is at pre-flight — not something to paper over.
+**`Status: Active` is what makes a role usable by the plugin at all, in either engagement mode.** A `Draft` role is not applied automatically and not applied on demand — if the human asks for a Draft role by name, the stage says plainly that the role is not available. This should also apply if a undefined role is requested. A role's own `Engagement mode` checkboxes (Automatic lens / On-demand review) only take effect once that role is Active; until then they're inert regardless of what they say. Promoting a role to Active is a single deliberate edit to its `Status` line, and it turns the role on in both modes at once.
+
+This is the canonical statement of that rule. `conventions.md` §10 points back here rather than restating it, the same way every other cross-stage rule in this plugin lives in exactly one place.
+
+Separately, and regardless of Draft/Active status: **don't fabricate a checklist or voice for a role beyond what its file actually says.** If a stage would normally consult a role and its file is thinner than what's needed, say so plainly and work with what's actually written, rather than improvising the rest from a generic idea of the job title — the same anti-fabrication discipline `conventions.md` §4 applies everywhere else in this plugin.
 
 ## The roles
 
@@ -28,9 +31,9 @@ Every stage in this plugin already asks *what does the evidence support*. Person
 
 This mapping is a starting point recorded here for convenience, not a constraint enforced anywhere in code — a role's own reference file is free to note it applies to an additional stage once it's actually written, and a stage skill should read the role file rather than trusting this table if the two ever disagree.
 
-## How a stage applies a role, once a file is filled in
+## How a stage applies a role
 
-Two engagement modes, both legitimate, and a given role file should say which of these it supports (a role can support both):
+Two engagement modes, both legitimate, and a given role file says which of these it's written to support (a role can support both) — but neither mode actually runs until that role's `Status` is Active (see Status above). A role can be written to support both automatic and on-demand engagement in principle while still sitting at Draft, not yet cleared to run at all.
 
 - **Automatic lens.** Before presenting a judgement-heavy section as finished, the drafting stage silently runs the relevant role's checklist against its own draft and folds any catch into the draft — the same way a writer reads their own work back before sending it. This doesn't get narrated blow-by-blow in chat; it's a quality bar, not a performance.
 - **On-demand review.** The human asks directly — "review the Functional Requirements as a Business Analyst would", "does this hold up from a Delivery Lead's point of view" — and the stage applies that role's checklist explicitly, reporting back what it caught as its own visible step, not folded silently into a redraft.

@@ -18,10 +18,11 @@ Product Velocity speeds up the writing and refuses the dishonesty. Every stage d
 | 2 | **Evidence** | The Project Brief | `research-repository.md` |
 | 3 | **Analyse-Explore** | Brief + repository | `opportunities-analysis.md`, `design-brief.md` and/or `design-prompt.md` |
 
-Plus two supporting skills:
+Plus three supporting skills:
 
 - **`orchestrator`** — the entry point. Owns project setup, workflow state, dependency checks, stage routing and gates. Always runs first.
 - **`brand-artefacts`** — the single source of truth for every rendered artefact: brand colour, typography, logos, layout, print behaviour and accessibility.
+- **`roles`** — persona lenses that sharpen judgement-heavy sections at each stage, improving thinking and planning for responses and wrting content for artefacts. Applicable once a role is promoted from Draft to Active.
 
 ## Install
 

@@ -83,7 +83,15 @@ Four rules while drafting. The first is the one most likely to be quietly broken
 
 **Don't silently resolve gaps.** A P0 left "Unknown / TBD" goes into Intake Notes, not papered over with something plausible.
 
-After drafting, read the Brief back against the kickoff and tell the human out loud which parts you inferred rather than found stated. They can't audit that from the document itself.
+After drafting,
+
+**Apply persona lenses before moving on**, per `conventions.md` §10: 
+[ ] Product Leader reads Executive Summary, Success Criteria and Stakeholders & Governance; 
+[ ] Business Analyst reads Scope & Boundaries and Constraints; 
+[ ] Delivery Lead reads Constraints; 
+[ ] Senior Product Designer reads Users & JTBD and Current State. 
+
+Fold any applicable role's catch straight into the Brief; don't narrate the check step by step unless the human asked for it on demand. Then read the Brief back against the kickoff and tell the human out loud which parts you inferred rather than found stated.
 
 ## Step 3 — Ask which artefacts to produce
 

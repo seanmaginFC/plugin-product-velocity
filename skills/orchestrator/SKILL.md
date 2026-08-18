@@ -31,6 +31,7 @@ This skill is the controller. It does not produce project content of its own. It
 Supporting skills, available to every stage:
 
 - `brand-artefacts` — the single source of truth for every rendered artefact (HTML slide decks, HTML one-pagers, and any future visual output): brand colours, typography, layout, and the slide/page structures each stage needs. No stage defines its own styling.
+- `roles` — persona lenses that sharpen judgement-heavy sections at each stage. Should be used to improve thinking and planning for responses and wrting content for artefacts. Draft/Active gating and the anti-fabrication rule for roles live in `conventions.md` §10, not restated here.
 - `leisure-research-insights` — **external skill, not bundled.** Stage 2 delegates Confluence, Jira, Miro and FullStory retrieval to it. See Pre-flight below.
 
 Stage 4 (Design) is out of scope for this version. If the human asks about it, say plainly that it isn't part of Product Velocity yet and that the Design Brief is the current end of the line.
