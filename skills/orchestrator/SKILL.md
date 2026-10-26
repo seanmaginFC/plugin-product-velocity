@@ -38,7 +38,9 @@ Stage 4 (Design) is out of scope for this version. If the human asks about it, s
 
 ## Session start protocol
 
-Run all four steps before doing any stage work. They are cheap, and skipping them is how a session ends up half-finished in the wrong folder against a skill the designer doesn't have installed.
+Run all four steps before doing any stage work. They are cheap, and skipping them is how a session ends up half-finished in the wrong folder against a skill the designer doesn't have installed. 
+
+Is a folder connected? If no: stop. Don't create any project files. Ask the human to connect the project root (offer the folder picker). Never use a session scratch or outputs folder as a project root.
 
 ### 1. Identify the project
 
@@ -196,3 +198,6 @@ Then update the state file, and offer the next stage rather than starting it unp
 - `references/conventions.md` — cross-stage rules. Read at session start; also read by every stage skill.
 - `references/workflow-state-template.md` — the structure of `_workflow-state.md`.
 - `references/contact-list.md` — who to contact for missing dependencies and errors. Edit this file, not the skill body, when contacts change.
+
+## Handling uploaded artefacts
+If the human uploads a workflow artefact (a Brief, a repository), or one mentions _workflow-state.md, assume an existing project folder exists. Ask the human to connect it before doing anything else.

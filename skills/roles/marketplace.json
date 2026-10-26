@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "plugins": [
+    {
+      "name": "product-velocity",
+      "displayName": "Product Velocity",
+      "version": "0.1.0",
+      "description": "Evidence-led UX design workflow. Turns a stakeholder kickoff into a Project Brief, validates its hypotheses into a research repository, then produces comparable recommendations and a Design Brief — with gaps, hypotheses and confidence kept visible throughout.",
+      "manifestPath": ".claude-plugin/plugin.json"
+    }
+  ]
+}
